@@ -28,7 +28,8 @@ def _draw_text(image, text, position, color, scale = 1.0, offset_lines = 0):
     text height.
   """
   font = ImageFont.load_default()
-  text_size = font.getsize(text)
+  bbox = font.getbbox(text)  # 使用 getbbox 代替 getsize
+  text_size = (bbox[2] - bbox[0], bbox[3] - bbox[1])  # 计算文本的宽度和高度
   text_image = Image.new(mode = "RGBA", size = text_size, color = (0, 0, 0, 0))
   ctx = ImageDraw.Draw(text_image)
   ctx.text(xy = (0, 0), text = text, font = font, fill = color)
