@@ -261,10 +261,12 @@ class Dataset:
       for obj in root.findall("object"):
         assert len(obj.findall("name")) == 1
         assert len(obj.findall("bndbox")) == 1
+        '''
         assert len(obj.findall("difficult")) == 1
         is_difficult = int(obj.find("difficult").text) != 0
         if is_difficult and not allow_difficult:
           continue  # ignore difficult examples unless asked to include them
+        '''
         class_name = obj.find("name").text
         bndbox = obj.find("bndbox")
         assert len(bndbox.findall("xmin")) == 1
