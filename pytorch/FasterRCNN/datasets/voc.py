@@ -37,29 +37,10 @@ class Dataset:
   A VOC dataset iterator for a particular split (train, val, etc.)
   """
 
-  num_classes = 21
+  num_classes = 2
   class_index_to_name = {
     0:  "background",
-    1:  "aeroplane",
-    2:  "bicycle",
-    3:  "bird",
-    4:  "boat",
-    5:  "bottle",
-    6:  "bus",
-    7:  "car",
-    8:  "cat",
-    9:  "chair",
-    10: "cow",
-    11: "diningtable",
-    12: "dog",
-    13: "horse",
-    14: "motorbike",
-    15: "person",
-    16: "pottedplant",
-    17: "sheep",
-    18: "sofa",
-    19: "train",
-    20: "tvmonitor"
+    1:  "figure"
   }
 
   def __init__(self, split, image_preprocessing_params, compute_feature_map_shape_fn, feature_pixels = 16, dir = "VOCdevkit/VOC2007", augment = True, shuffle = True, allow_difficult = False, cache = True):
